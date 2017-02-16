@@ -1,0 +1,20 @@
+{
+  "name": "WDI-PROJECT-4-CLIENT",
+  "description": "Client side for WDI final project",
+  "main": "index.js",
+  "authors": [
+    "Josceline O'Sullivan <josceline@mac.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
