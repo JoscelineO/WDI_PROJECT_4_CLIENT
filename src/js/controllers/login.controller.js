@@ -1,3 +1,7 @@
+angular
+ .module('moodboardApp')
+ .controller('LoginCtrl', LoginCtrl);
+
 LoginCtrl.$inject = ['User'];
 function LoginCtrl(User) {
   const vm = this;
