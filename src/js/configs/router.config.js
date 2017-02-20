@@ -22,12 +22,18 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/login.html',
     controller: 'LoginCtrl',
     controllerAs: 'login'
+  })
+  // .state('moodboards', {
+  //   url: '/moodboards',
+  //   templateUrl: '/js/views/moodboards/new.html',
+  //   controller: 'MoodboardsIndexCtrl',
+  //   controllerAs: ''
   // })
-  // .state('usersIndex', {
-  //   url: '/users',
-  //   templateUrl: '/js/views/index.html',
-  //   controller: 'UsersIndexCtrl',
-  //   controllerAs: 'usersIndex'
+  .state('moodboardsNew', {
+    url: '/moodboards/new',
+    templateUrl: '/js/views/moodboards/new.html',
+    controller: 'MoodboardsNewCtrl',
+    controllerAs: 'moodboardsNew'
   });
 
   $urlRouterProvider.otherwise('/');
