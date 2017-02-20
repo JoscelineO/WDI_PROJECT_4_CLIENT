@@ -1,18 +1,22 @@
 angular
-  .module('moodboardApp')
-  .controller('MainCtrl', MainCtrl);
+.module('moodboardApp')
+.controller('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state'];
 function MainCtrl($rootScope, CurrentUserService, $state) {
   const vm = this;
 
   $rootScope.$on('loggedIn', () => {
-    CurrentUserService.getUser() //calls current-user-service
-    .then(data => {
-      vm.user = data;
-      $state.go('usersIndex'); // when logged in take us to users index
-    }, err => {
-      console.log(err);
-    });
+    vm.user = CurrentUserService.currentUser;
+    $state.go('home');
+  });
+
+  vm.logout = () => {
+    CurrentUserService.removeUser();
+  };
+
+  $rootScope.$on('loggedOut', () => {
+    vm.user = null;
+    $state.go('login');
   });
 }
