@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>{{ moodboardsShow.moodboard.project_name }}</h1>
+  <p>{{ moodboardsShow.moodboard.brief }}</p>
+  <button class="button button-primary" ng-click="moodboardsShow.delete({id: moodboards.id})">Delete
+  </button>
+
+  <div>
+    <form class="new_moodboard" ng-submit="moodboardsShow.addAsset()">
+      <div class="form-group">
+        <input class="form-control" type="url" name="url" ng-model="moodboardsShow.asset.url" placeholder="Image url">
+      </div>
+      <input class="button button-primary" type="submit" value="Submit"/>
+    </form>
+  </div>
+  <div class="board row">
+    <div class="eight columns">
+        <ul>
+          <li ng-repeat="assets in moodboardsShow.asset">
+            <img class="assets draggable" src="{{ assets.url }}" alt="please check image url">
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>

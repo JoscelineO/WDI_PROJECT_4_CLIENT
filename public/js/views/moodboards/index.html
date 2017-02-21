@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Current Moodboard</h1>
+  <ul>
+  <li ng-repeat="moodboards in moodboardsIndex.moodboards">
+    <a class="u-full-width button button-primary" ui-sref="moodboardsShow({id: moodboards.id})">{{ moodboards.project_name }}</a>
+  </li>
+</ul>
+</div>

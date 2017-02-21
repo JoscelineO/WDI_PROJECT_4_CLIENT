@@ -23,17 +23,23 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'LoginCtrl',
     controllerAs: 'login'
   })
-  // .state('moodboards', {
-  //   url: '/moodboards',
-  //   templateUrl: '/js/views/moodboards/new.html',
-  //   controller: 'MoodboardsIndexCtrl',
-  //   controllerAs: ''
-  // })
+  .state('moodboardsIndex', {
+    url: '/moodboards',
+    templateUrl: '/js/views/moodboards/index.html',
+    controller: 'MoodboardsIndexCtrl',
+    controllerAs: 'moodboardsIndex'
+  })
   .state('moodboardsNew', {
     url: '/moodboards/new',
     templateUrl: '/js/views/moodboards/new.html',
     controller: 'MoodboardsNewCtrl',
     controllerAs: 'moodboardsNew'
+  })
+  .state('moodboardsShow', {
+    url: '/moodboards/:id',
+    templateUrl: '/js/views/moodboards/show.html',
+    controller: 'MoodboardsShowCtrl',
+    controllerAs: 'moodboardsShow'
   });
 
   $urlRouterProvider.otherwise('/');
