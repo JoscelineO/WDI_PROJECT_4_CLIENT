@@ -19,16 +19,35 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
   };
 
   vm.addAsset = function addAsset() {
+
+    vm.asset.x_position   = 0;
+    vm.asset.y_position   = 0;
+    vm.asset.moodboard_id = vm.moodboard.id;
+    vm.asset.height       = parseInt(vm.asset.width);
+    vm.asset.width        = parseInt(vm.asset.width);
+
     Asset
-    .save({ asset: { url: vm.asset.url, moodboard_id: vm.moodboard.id }})
+    .save(vm.asset)
     .$promise
-    .then(() => {
-      $state.go('moodboardsShow');
-      console.log('done');
+    .then(data => {
+      console.log(vm.asset);
+      vm.moodboard.assets.push(data);
     });
   };
 
-  // target elements with the "draggable" class
+  vm.deleteAsset = function assetDelete(assets) {
+    if(confirm('Are you sure you want to delete this asset?')){
+      Asset
+      .delete({id: assets.id})
+      .$promise
+      .then(() => {
+        vm.moodboard.assets.splice(vm.moodboard.assets.indexOf(assets), 1);
+      });
+    }
+  };
+
+
+  // target elements with the "draggable" classs
   interact('.draggable')
   .draggable({
     // enable inertial throwing
@@ -44,14 +63,14 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
 
     // call this function on every dragmove event
     onmove: dragMoveListener
-
   });
+
 
   function dragMoveListener (event) {
     var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
-    x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-    y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    x = (parseFloat(target.getAttribute('data-x'))) + event.dx,
+    y = (parseFloat(target.getAttribute('data-y'))) + event.dy;
 
     // translate the element
     target.style.webkitTransform =
@@ -67,21 +86,81 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
   }
 
   vm.updateAsset = function(asset) {
-    asset.x_position = vm.xValue;
-    asset.y_position = vm.yValue;
-
-    console.log(asset);
+    asset.x_position = vm.xValue || asset.x_position;
+    asset.y_position = vm.yValue || asset.y_position;
 
     Asset
     .update({ id: asset.id }, asset)
     .$promise
     .then(data => {
       console.log('ASSET SAVED', data);
+      vm.xValue = 0;
+      vm.yValue = 0;
     });
 
   };
 
-  // this is used later in the resizing and gesture demos
-  window.dragMoveListener = dragMoveListener;
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this is used later in the resizing and gesture demos
+// window.dragMoveListener = dragMoveListener;
+
+
+
+// interact('.resize-drag')
+// .draggable({
+//   onmove: window.dragMoveListener
+// })
+// .resizable({
+//   preserveAspectRatio: true,
+//   edges: { left: true, right: true, bottom: true, top: true }
+// })
+// .on('resizemove', function (event) {
+//   var target = event.target,
+//       x = (parseFloat(target.getAttribute('data-x')) || 0),
+//       y = (parseFloat(target.getAttribute('data-y')) || 0);
+//
+//   // update the element's style
+//   target.style.width  = event.rect.width + 'px';
+//   target.style.height = event.rect.height + 'px';
+//
+//   // translate when resizing from top or left edges
+//   x += event.deltaRect.left;
+//   y += event.deltaRect.top;
+//
+//   // target.style.webkitTransform = target.style.transform =
+//       'translate(' + x + 'px,' + y + 'px)';
+//
+//   target.setAttribute('data-x', x);
+//   target.setAttribute('data-y', y);
+// });

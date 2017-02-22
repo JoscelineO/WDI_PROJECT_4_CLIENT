@@ -21,7 +21,8 @@
     "angular-resource": "^1.6.2",
     "skeleton": "^2.0.4",
     "reset-css": "^2.2.0",
-    "interactjs": "interact#^1.2.8"
+    "interactjs": "interact#^1.2.8",
+    "jquery-ui": "^1.12.1"
   },
   "overrides": {
     "reset-css": {

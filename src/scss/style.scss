@@ -1,6 +1,6 @@
 // Import all of your scss files here
 .assets {
-  width: 200px;
+  width: inherit;
   position: absolute;
 }
 
@@ -14,4 +14,8 @@
   width: 732px;
   height: 767px;
   background: #ccc;
+}
+
+.draggable {
+  background: red;
 }

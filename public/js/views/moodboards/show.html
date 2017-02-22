@@ -9,14 +9,27 @@
       <div class="form-group">
         <input class="form-control" type="url" name="url" ng-model="moodboardsShow.asset.url" placeholder="Image url">
       </div>
+      <label for="singleSelect"> Size: </label><br>
+      <select name="singleSelect" ng-model="moodboardsShow.asset.width">
+        <option value="200">Small</option>
+        <option value="250">Medium</option>
+        <option value="300">Large</option>
+      </select><br>
       <input class="button button-primary" type="submit" value="Submit"/>
     </form>
   </div>
   <div class="board row">
     <div class="board twelve columns resize-container" id="grid-snap">
         <ul class="border">
-          <li ng-repeat="assets in moodboardsShow.moodboard.assets" class="assets draggable resize-drag" data-x="{{ assets.x_position }}" data-y="{{ assets.y_position }}" style="transform: translate({{ assets.x_position }}px, {{ assets.y_position }}px);">
-            <img class="assets" src="{{ assets.url }}" alt="please check image url" ng-mouseup="moodboardsShow.updateAsset(assets)">
+          <li
+            ng-repeat="assets in moodboardsShow.moodboard.assets"
+            class="assets draggable resizable"
+            data-x="{{ assets.x_position }}"
+            data-y="{{ assets.y_position }}"
+            style="transform: translate({{ assets.x_position }}px, {{ assets.y_position }}px); width: {{ assets.width }}px; height: {{ assests.height }}px;" ng-mouseup="moodboardsShow.updateAsset(assets)"
+          >
+            <a ng-click="moodboardsShow.deleteAsset(assets)">X</a>
+            <img class="assets" src="{{ assets.url }}" alt="please check image url">
           </li>
         </ul>
     </div>
