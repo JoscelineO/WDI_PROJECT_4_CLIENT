@@ -20,7 +20,8 @@
     "angular-ui-router": "^0.4.2",
     "angular-resource": "^1.6.2",
     "skeleton": "^2.0.4",
-    "reset-css": "^2.2.0"
+    "reset-css": "^2.2.0",
+    "interactjs": "interact#^1.2.8"
   },
   "overrides": {
     "reset-css": {

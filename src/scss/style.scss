@@ -1,8 +1,17 @@
 // Import all of your scss files here
 .assets {
   width: 200px;
+  position: absolute;
 }
 
 .board {
   border: 2px solid black;
+  height: 100vh;
+  overflow: visible;
+}
+
+.border {
+  width: 732px;
+  height: 767px;
+  background: #ccc;
 }

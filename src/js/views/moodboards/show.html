@@ -13,10 +13,10 @@
     </form>
   </div>
   <div class="board row">
-    <div class="eight columns">
-        <ul>
-          <li ng-repeat="assets in moodboardsShow.asset">
-            <img class="assets draggable" src="{{ assets.url }}" alt="please check image url">
+    <div class="board twelve columns resize-container" id="grid-snap">
+        <ul class="border">
+          <li ng-repeat="assets in moodboardsShow.moodboard.assets" class="assets draggable resize-drag" data-x="{{ assets.x_position }}" data-y="{{ assets.y_position }}" style="transform: translate({{ assets.x_position }}px, {{ assets.y_position }}px);">
+            <img class="assets" src="{{ assets.url }}" alt="please check image url" ng-mouseup="moodboardsShow.updateAsset(assets)">
           </li>
         </ul>
     </div>
