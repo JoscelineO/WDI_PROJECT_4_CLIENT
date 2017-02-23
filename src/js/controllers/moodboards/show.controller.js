@@ -2,9 +2,9 @@ angular
 .module('moodboardApp')
 .controller('MoodboardsShowCtrl', MoodboardsShowCtrl);
 
-MoodboardsShowCtrl.$inject = ['Moodboard', '$state', '$stateParams', 'Asset'];
+MoodboardsShowCtrl.$inject = ['Moodboard', '$state', '$stateParams', 'Asset', '$http'];
 
-function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
+function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset, $http ) {
   const vm = this;
 
   vm.moodboard = Moodboard.get($stateParams);
@@ -25,6 +25,7 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
     vm.asset.moodboard_id = vm.moodboard.id;
     vm.asset.height       = parseInt(vm.asset.width);
     vm.asset.width        = parseInt(vm.asset.width);
+    vm.asset.url          = vm.image_url;
 
     Asset
     .save(vm.asset)
@@ -33,6 +34,18 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
       console.log(vm.asset);
       vm.moodboard.assets.push(data);
     });
+  };
+
+  vm.unSplash = function unSplash() {
+    $http
+      .get('https://api.unsplash.com/photos/random/?client_id=c954890ee40b178bcc03ad013e87bea83157720eb43b37a577d7493e3d0eaddc')
+      .then(response => {
+        vm.image = (response.data.urls.small);
+      });
+  };
+
+  vm.addToUrl = function addToUrl() {
+    vm.image_url = vm.image;
   };
 
   vm.deleteAsset = function assetDelete(assets) {
@@ -93,7 +106,6 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset ) {
     .update({ id: asset.id }, asset)
     .$promise
     .then(data => {
-      console.log('ASSET SAVED', data);
       vm.xValue = 0;
       vm.yValue = 0;
     });

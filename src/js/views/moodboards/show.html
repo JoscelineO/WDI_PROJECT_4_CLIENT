@@ -7,8 +7,10 @@
   <div>
     <form class="new_moodboard" ng-submit="moodboardsShow.addAsset()">
       <div class="form-group">
-        <input class="form-control" type="url" name="url" ng-model="moodboardsShow.asset.url" placeholder="Image url">
+        <input class="form-control" type="url" name="url" value="{{ MoodboardsShowCtrl.image_url }}" ng-model="moodboardsShow.asset.url" placeholder="Image url">
       </div>
+      <img src="{{ moodboardsShow.image }}" alt="" ng-model="moodboardsShow.asset.url" ng-click="moodboardsShow.addToUrl()">
+      <button class="button button-primary" ng-click="moodboardsShow.unSplash()">Inspire Me</button>
       <label for="singleSelect"> Size: </label><br>
       <select name="singleSelect" ng-model="moodboardsShow.asset.width">
         <option value="200">Small</option>
