@@ -1,0 +1,9 @@
+.button {
+  font-family: $body-font;
+  border: none;
+}
+
+.button:hover {
+  color: $silk;
+  border: 1px solid $silk;
+}

@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>{{ moodboardsShow.moodboard.project_name }}</h1>
-  <p>{{ moodboardsShow.moodboard.brief }}</p>
+  <h1 ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">{{ moodboardsShow.moodboard.project_name }}</h1>
+  <p ng-show="toggle">{{ moodboardsShow.moodboard.brief }}</p>
   <a class="button" ui-sref="assetsNew({ id: moodboardsShow.moodboard.id })">Add Picture</a>
 
   <div class="board row">

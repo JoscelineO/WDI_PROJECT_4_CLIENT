@@ -11,12 +11,11 @@ nav {
         display: block;
         padding: 0 20px;
         line-height: 70px;
-        background: #FFF;
-        color: #373737;
+        background: $white;
+        color: $charcoal;
         text-decoration: none;
         &:hover {
-          // background: #F4F4F4;
-          color: #DCD0D0;
+          color: $silk;
         }
       }
     }
@@ -29,7 +28,7 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
-    background: #FFF;
+    background: $white;
     height: 70px;
     width: 100%;
   }
@@ -37,8 +36,8 @@ nav {
 
 .navigation {
   height: 70px;
-  background: #FFF;
-  border-bottom: 2px solid #F4F4F4;
+  background: $white;
+  border-bottom: 2px solid $paper;
 }
 
 .nav-container {
@@ -56,7 +55,7 @@ nav {
   font-size: 1.4em;
   a,
   a:visited {
-    color: #373737;
+    color: $charcoal;
     text-decoration: none;
   }
 }

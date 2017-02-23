@@ -2,12 +2,14 @@
   <h1>Current Moodboard</h1>
   <ul>
   <li ng-repeat="moodboards in moodboardsIndex.moodboards">
-    <a class="u-full-width button" ui-sref="moodboardsShow({id: moodboards.id})" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">{{ moodboards.project_name }}</a>
-    <div ng-show="toggle" class="fade">
+    <div class="each-moodboard" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+    <a class="u-full-width button moodboard-index" ui-sref="moodboardsShow({id: moodboards.id})" >{{ moodboards.project_name }}</a>
+    <div ng-show="toggle" class="brief fade">
     <p>{{ moodboards.brief }}</p>
-    <button class="button" ng-click="moodboardsIndex.delete(moodboards)">Delete
+    <button class="button moodboard-delete" ng-click="moodboardsIndex.delete(moodboards)">Delete
     </button>
     </div>
+    <div>
   </li>
 </ul>
 </div>
