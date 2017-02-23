@@ -2,8 +2,8 @@ angular
 .module('moodboardApp')
 .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state'];
-function MainCtrl($rootScope, CurrentUserService, $state) {
+MainCtrl.$inject = ['$rootScope', 'CurrentUserService', '$state', '$scope'];
+function MainCtrl($rootScope, CurrentUserService, $state, $scope) {
   const vm = this;
 
   $rootScope.$on('loggedIn', () => {
@@ -18,4 +18,12 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
     vm.user = null;
     $state.go('login');
   });
+
+  $scope.hoverIn = function(){
+    this.toggle = true;
+  };
+
+  $scope.hoverOut = function(){
+    this.toggle = false;
+  };
 }
