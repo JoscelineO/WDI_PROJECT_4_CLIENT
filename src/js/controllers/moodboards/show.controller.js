@@ -6,17 +6,7 @@ MoodboardsShowCtrl.$inject = ['Moodboard', '$state', '$stateParams', 'Asset', '$
 
 function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset, $http ) {
   const vm = this;
-
   vm.moodboard = Moodboard.get($stateParams);
-
-  vm.delete = function moodboardDelete() {
-    Moodboard
-    .delete($stateParams)
-    .$promise
-    .then(() => {
-      $state.go('moodboardsIndex');
-    });
-  };
 
   vm.addAsset = function addAsset() {
 

@@ -40,6 +40,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/moodboards/show.html',
     controller: 'MoodboardsShowCtrl',
     controllerAs: 'moodboardsShow'
+  })
+  .state('assetsNew', {
+    url: '/moodboards/:id/assets/new',
+    templateUrl: '/js/views/assets/new.html',
+    controller: 'MoodboardsShowCtrl',
+    controllerAs: 'moodboardsShow'
   });
 
   $urlRouterProvider.otherwise('/');

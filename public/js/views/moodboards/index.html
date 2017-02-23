@@ -2,7 +2,9 @@
   <h1>Current Moodboard</h1>
   <ul>
   <li ng-repeat="moodboards in moodboardsIndex.moodboards">
-    <a class="u-full-width button button-primary" ui-sref="moodboardsShow({id: moodboards.id})">{{ moodboards.project_name }}</a>
+    <a class="u-full-width button" ui-sref="moodboardsShow({id: moodboards.id})">{{ moodboards.project_name }}</a>
+    <button class="button" ng-click="moodboardsIndex.delete(moodboards)">Delete
+    </button>
   </li>
 </ul>
 </div>

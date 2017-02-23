@@ -1,4 +1,10 @@
 // Import all of your scss files here
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900');
+
+body{
+  background-color: #F4F4F4;
+  font-family: 'Nunito Sans', sans-serif;
+}
 .assets {
   width: inherit;
   position: absolute;
@@ -17,5 +23,16 @@
 }
 
 .draggable {
-  background: red;
+  background: #ccc;
+}
+
+.preview-asset {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
 }
