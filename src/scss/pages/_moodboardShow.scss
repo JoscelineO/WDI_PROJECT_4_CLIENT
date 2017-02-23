@@ -1,0 +1,36 @@
+ul.border {
+  width: 100%;
+  height: 680px;
+  position: absolute;
+}
+
+a.add_picture {
+  border: 2px solid $finesilk;
+  margin: 10px;
+  z-index: 999;
+  float: right;
+}
+
+a.add_picture:hover {
+  border: 2px solid $finesilk;
+  margin: 10px;
+  z-index: 999;
+}
+
+.board {
+  height: 600px;
+  overflow: visible;
+}
+
+.assets {
+  width: inherit;
+  position: absolute;
+}
+
+.delete_image {
+  position: absolute;
+  z-index: 999;
+  padding: 5px;
+  background: $tracepaper;
+  color: $charcoal;
+}

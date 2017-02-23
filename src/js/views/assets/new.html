@@ -1,29 +1,32 @@
-<h2>Add Picture to {{ moodboardsShow.moodboard.project_name }}</h2>
+<div class="container">
+  <h1 class="add-picture-title">Add Picture to {{ moodboardsShow.moodboard.project_name }}</h1>
 
-{{ moodboardsShow.asset }}
+  {{ moodboardsShow.asset }}
 
-<form class="new_moodboard" ng-submit="moodboardsShow.addAsset()">
-  <div class="form-group">
-    <input class="form-control" ng-model="moodboardsShow.asset.url" placeholder="Image url">
+  <form class="new_asset" ng-submit="moodboardsShow.addAsset()">
+    <div class="form-group">
+      <input class="form-control" ng-model="moodboardsShow.asset.url" type="text" placeholder="Image url">
+    </div>
+    <!-- <img src="{{ moodboardsShow.image }}" ng-model="moodboardsShow.asset.url"> -->
+    <!-- <button class="button button-primary" ng-click="moodboardsShow.unSplash()">Inspire Me</button> -->
+    <label for="singleSelect"> Size: </label><br>
+    <select class="singleSelect" name="singleSelect" ng-model="moodboardsShow.asset.width" ng-change="moodboardsShow.convertString(this)">
+      <option value="200">Small</option>
+      <option value="250">Medium</option>
+      <option value="300">Large</option>
+    </select><br>
+    <input class="button" type="submit" value="Submit"/>
+  </form>
+
+  <h4>Preview</h4>
+  <div
+    class="preview-asset"
+    style="
+      background-image: url({{ moodboardsShow.asset.url }});
+      width: {{ moodboardsShow.asset.width }}px;
+      height: {{ moodboardsShow.asset.width }}px;
+      "
+  >
   </div>
-  <!-- <img src="{{ moodboardsShow.image }}" ng-model="moodboardsShow.asset.url"> -->
-  <!-- <button class="button button-primary" ng-click="moodboardsShow.unSplash()">Inspire Me</button> -->
-  <label for="singleSelect"> Size: </label><br>
-  <select name="singleSelect" ng-model="moodboardsShow.asset.width">
-    <option value="200">Small</option>
-    <option value="250">Medium</option>
-    <option value="300">Large</option>
-  </select><br>
-  <input class="button button-primary" type="submit" value="Submit"/>
-</form>
 
-<h4>Preview</h4>
-<div
-  class="preview-asset"
-  style="
-    background-image: url({{ moodboardsShow.asset.url }});
-    width: {{ moodboardsShow.width }}px;
-    height: {{ moodboardsShow.width }}px;
-    "
->
 </div>

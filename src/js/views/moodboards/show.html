@@ -1,21 +1,18 @@
-<div class="container">
-  <h1 ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">{{ moodboardsShow.moodboard.project_name }}</h1>
-  <p ng-show="toggle">{{ moodboardsShow.moodboard.brief }}</p>
-  <a class="button" ui-sref="assetsNew({ id: moodboardsShow.moodboard.id })">Add Picture</a>
+<div class="board row">
 
-  <div class="board row">
-    <div class="board twelve columns resize-container" id="grid-snap">
-        <ul class="border">
-          <li
-            ng-repeat="assets in moodboardsShow.moodboard.assets"
-            class="assets draggable resizable"
-            data-x="{{ assets.x_position }}"
-            data-y="{{ assets.y_position }}"
-            style="transform: translate({{ assets.x_position }}px, {{ assets.y_position }}px); width: {{ assets.width }}px; height: {{ assests.height }}px;" ng-mouseup="moodboardsShow.updateAsset(assets)">
-            <a ng-click="moodboardsShow.deleteAsset(assets)">X</a>
-            <img class="assets" src="{{ assets.url }}" alt="please check image url">
-          </li>
-        </ul>
-    </div>
-  </div>
+  <div class="board resize-container" id="grid-snap">
+    <ul class="border">
+      <a class="button add_picture" ui-sref="assetsNew({ id: moodboardsShow.moodboard.id })">Add Picture</a>
+      <li
+      ng-repeat="assets in moodboardsShow.moodboard.assets"
+      class="assets draggable resizable"
+      data-x="{{ assets.x_position }}"
+      data-y="{{ assets.y_position }}"
+      style="transform: translate({{ assets.x_position }}px, {{ assets.y_position }}px); width: {{ assets.width }}px; height: {{ assests.height }}px;" ng-mouseup="moodboardsShow.updateAsset(assets)"
+      ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+      <a class="delete_image" ng-show="toggle" ng-click="moodboardsShow.deleteAsset(assets)">X</a>
+      <img class="assets" src="{{ assets.url }}" alt="please check image url">
+    </li>
+  </ul>
+</div>
 </div>

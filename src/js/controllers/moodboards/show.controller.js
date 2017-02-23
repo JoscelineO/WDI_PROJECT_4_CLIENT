@@ -2,9 +2,9 @@ angular
 .module('moodboardApp')
 .controller('MoodboardsShowCtrl', MoodboardsShowCtrl);
 
-MoodboardsShowCtrl.$inject = ['Moodboard', '$state', '$stateParams', 'Asset', '$http'];
+MoodboardsShowCtrl.$inject = ['Moodboard', '$state', '$stateParams', 'Asset', '$http', '$document'];
 
-function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset, $http ) {
+function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset, $http, $document ) {
   const vm = this;
   vm.moodboard = Moodboard.get($stateParams);
 
@@ -15,27 +15,36 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset, $http ) {
     vm.asset.moodboard_id = vm.moodboard.id;
     vm.asset.height       = parseInt(vm.asset.width);
     vm.asset.width        = parseInt(vm.asset.width);
-    vm.asset.url          = vm.image_url;
+
 
     Asset
     .save(vm.asset)
     .$promise
     .then(data => {
-      console.log(vm.asset);
       vm.moodboard.assets.push(data);
+      $state.go('moodboardsShow', {id: vm.moodboard.id});
     });
   };
 
-  vm.unSplash = function unSplash() {
-    $http
-      .get('https://api.unsplash.com/photos/random/?client_id=c954890ee40b178bcc03ad013e87bea83157720eb43b37a577d7493e3d0eaddc')
-      .then(response => {
-        vm.image = (response.data.urls.small);
-      });
-  };
+  // vm.unSplash = function unSplash() {
+  //   $http
+  //     .get('https://api.unsplash.com/photos/random/?client_id=c954890ee40b178bcc03ad013e87bea83157720eb43b37a577d7493e3d0eaddc')
+  //     .then(response => {
+  //       vm.image = (response.data.urls.small);
+  //     });
+  // };
+  //
+  // vm.addToUrl = function addToUrl() {
+  //   vm.image_url = vm.image;
+  // };
 
-  vm.addToUrl = function addToUrl() {
-    vm.image_url = vm.image;
+  vm.convertString = function() {
+    const dropdown      = $document[0].querySelector('.singleSelect');
+    const dropdownValue = dropdown.options[dropdown.selectedIndex].value;
+
+    vm.asset.width = parseInt(dropdownValue);
+
+    console.log(vm.asset.width);
   };
 
   vm.deleteAsset = function assetDelete(assets) {

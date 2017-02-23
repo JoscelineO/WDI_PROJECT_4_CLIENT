@@ -1,9 +1,19 @@
 .button {
   font-family: $body-font;
-  border: none;
+  border: 1px solid $silk;
 }
 
 .button:hover {
   color: $silk;
+  border: 2px solid $silk;
+}
+
+input.button {
+  font-family: $body-font;
   border: 1px solid $silk;
+}
+
+input.button:hover {
+  color: $silk;
+  border: 2px solid $silk;
 }

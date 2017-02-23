@@ -4,10 +4,12 @@
 @import"typography";
 @import"buttons";
 @import"nav";
+@import"form";
 
 
 @import"pages/moodboardsIndex";
-
+@import"pages/moodboardShow";
+@import"pages/assetsNew";
 
 
 body{
@@ -15,35 +17,11 @@ body{
   h1: 0rem;
 }
 
-main {
-  margin-top: 60px;
-}
 
-.fade.ng-hide {
-  transition:0.5s linear all;
-  opacity:0;
-}
-
-.assets {
-  width: inherit;
-  position: absolute;
-}
-
-.board {
-  border: 2px solid black;
-  height: 100vh;
-  overflow: visible;
-}
-
-.border {
-  width: 732px;
-  height: 767px;
-  background: #ccc;
-}
-
-.draggable {
-  background: #ccc;
-}
+// .fade.ng-hide {
+//   transition:0.5s linear all;
+//   opacity:0;
+// }
 
 .preview-asset {
   width: 200px;
