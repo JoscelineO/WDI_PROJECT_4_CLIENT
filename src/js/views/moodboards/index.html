@@ -1,7 +1,7 @@
 <div class="container">
-  <h1 class="index_title">Current Moodboard</h1>
+  <h1 class="index_title">Moodboards</h1>
   <ul>
-  <li class="animated bounceInUp" ng-repeat="moodboards in moodboardsIndex.moodboards">
+  <li class="animated slideInUp" ng-repeat="moodboards in moodboardsIndex.moodboards">
     <div class="each-moodboard" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
     <a class="u-full-width button moodboard-index" ui-sref="moodboardsShow({id: moodboards.id})" >{{ moodboards.project_name }}</a>
     <div ng-show="toggle" class="brief fade">

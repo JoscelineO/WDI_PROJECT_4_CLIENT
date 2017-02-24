@@ -3,25 +3,27 @@
   <form class="new_asset" ng-submit="moodboardsShow.addAsset()">
     <div class="form-group">
       <label for="Image"> Image Url: </label><br>
-      <input class="form-control" ng-model="moodboardsShow.asset.url" type="text">
+      <input class="form-control" ng-model="moodboardsShow.asset.url" type="text" autocomplete="off><br>
     </div>
-    <label for="singleSelect"> Size: </label><br>
-    <select class="singleSelect" name="singleSelect" ng-model="moodboardsShow.asset.width" ng-change="moodboardsShow.convertString(this)">
-      <option value="200">Small</option>
-      <option value="250">Medium</option>
-      <option value="300">Large</option>
-    </select><br>
+    <div class="form-group">
+      <label for="singleSelect"> Size: </label><br>
+      <select class="singleSelect" name="singleSelect" ng-model="moodboardsShow.asset.width" ng-change="moodboardsShow.convertString(this)">
+        <option value="200">Small</option>
+        <option value="250">Medium</option>
+        <option value="300">Large</option>
+      </select><br>
+    </div>
     <input class="button" type="submit" value="Submit"/>
   </form>
   <div class="preview" ng-show="moodboardsShow.asset.url">
     <h4>Preview</h4>
     <div
-      class="preview-asset"
-      style="
-        background-image: url({{ moodboardsShow.asset.url }});
-        width: {{ moodboardsShow.asset.width }}px;
-        height: {{ moodboardsShow.asset.width }}px;
-        ">
-    </div>
+    class="preview-asset"
+    style="
+    background-image: url({{ moodboardsShow.asset.url }});
+    width: {{ moodboardsShow.asset.width }}px;
+    height: {{ moodboardsShow.asset.width }}px;
+    ">
   </div>
+</div>
 </div>
