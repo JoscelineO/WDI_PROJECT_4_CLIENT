@@ -6,7 +6,6 @@ MoodboardsIndexCtrl.$inject = ['Moodboard', 'User', 'CurrentUserService', '$stat
 
 function MoodboardsIndexCtrl(Moodboard, User, CurrentUserService, $state) {
   const vm = this;
-  vm.user  = CurrentUserService.currentUser.username; 
 
   Moodboard
     .query()
