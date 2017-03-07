@@ -81,8 +81,8 @@ function MoodboardsShowCtrl(Moodboard, $state, $stateParams, Asset, $http, $docu
   function dragMoveListener (event) {
     var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
-    x = (parseFloat(target.getAttribute('data-x'))) + event.dx,
-    y = (parseFloat(target.getAttribute('data-y'))) + event.dy;
+      x = (parseFloat(target.getAttribute('data-x'))) + event.dx,
+      y = (parseFloat(target.getAttribute('data-y'))) + event.dy;
 
     // translate the element
     target.style.webkitTransform =
