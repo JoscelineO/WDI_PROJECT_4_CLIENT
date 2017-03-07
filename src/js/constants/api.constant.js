@@ -1,3 +1,3 @@
 angular
   .module('moodboardApp')
-  .constant('API', 'https://concept-api.herokuapp.com/');
+  .constant('API', 'https://concept-api.herokuapp.com');
