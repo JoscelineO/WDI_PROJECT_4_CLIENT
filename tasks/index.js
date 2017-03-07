@@ -19,8 +19,8 @@ const buildIndex = () => {
   return validateIndex()
     // write first to get relative path for inject
     .pipe(gulp.dest(config.destDir))
-    .pipe(inject(js, {relative: true}))
-    .pipe(inject(css, {relative: true}))
+    .pipe(inject(js, {relative: true, addRootSlash: true }))
+    .pipe(inject(css, {relative: true, addRootSlash: true }))
     .pipe(gulpIf(global.production, htmlmin({collapseWhitespace: true, removeComments: true})))
     .pipe(gulp.dest(config.destDir))
     .pipe(gulpIf(!global.production, browserSync.stream()));
