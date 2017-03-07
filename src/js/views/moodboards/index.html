@@ -1,15 +1,15 @@
 <div class="container">
   <h1 class="index_title">Moodboards</h1>
   <ul>
-  <li class="animated slideInUp" ng-repeat="moodboards in moodboardsIndex.moodboards">
-    <div class="each-moodboard" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
-    <a class="u-full-width button moodboard-index" ui-sref="moodboardsShow({id: moodboards.id})" >{{ moodboards.project_name }}</a>
-    <div ng-show="toggle" class="brief fade">
-    <p>{{ moodboards.brief }}</p>
-    <button class="button moodboard-delete" ng-click="moodboardsIndex.delete(moodboards)">Delete
-    </button>
-    </div>
-    <div>
-  </li>
-</ul>
+    <li class="animated slideInUp" ng-repeat="moodboards in moodboardsIndex.moodboards">
+      <div class="each-moodboard" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+        <a class="u-full-width button moodboard-index" ui-sref="moodboardsShow({id: moodboards.id})" >{{ moodboards.project_name }}</a>
+        <div ng-show="toggle" class="brief fade">
+          <p>{{ moodboards.brief }}</p>
+          <button class="button moodboard-delete" ng-click="moodboardsIndex.delete(moodboards)">Delete
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
