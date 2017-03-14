@@ -2,7 +2,7 @@
 
 ## Concept 
 
-![Concept screenshots] (images/concept-readme-pics.jpg)
+![Concept image] (src/images/concept-readme-pics.jpg)
 
 ### Introduction
 
