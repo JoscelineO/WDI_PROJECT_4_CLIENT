@@ -2,7 +2,7 @@
 
 ## Concept 
 
-![Concept image] (src/images/concept-readme-pics.jpg)
+![concept-readme-pics](https://cloud.githubusercontent.com/assets/23361888/23900703/21f6bb24-08b2-11e7-8f2e-37499fe4671e.jpg)
 
 ### Introduction
 
